@@ -12,6 +12,8 @@ public class UserModel {
 
     private String password;
 
+    private UserRole userRole;
+
     public String getId() {
         return id;
     }
@@ -44,13 +46,22 @@ public class UserModel {
         this.password = password;
     }
 
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
+    }
+
     public UserModel(){}
 
-    public UserModel(String id, String name, String email, String password) {
+    public UserModel(String id, String name, String email, String password, UserRole userRole) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.userRole = userRole;
     }
 
     @Override

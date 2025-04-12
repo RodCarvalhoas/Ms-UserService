@@ -18,7 +18,7 @@ public class UserService implements UserServicePort {
     }
 
     @Override
-    public UserModel findById(String id) {
+    public UserModel findByEmail(String email) {
         return null;
     }
 }

@@ -14,7 +14,6 @@ public interface UserMapper {
 
     UserEntity toEntity(UserModel model);
 
-    @Mapping(target = "password", ignore = true)
     CreateUserResponse toCreateUserResponse(UserModel model);
 
     @Mapping(target = "id", ignore = true)

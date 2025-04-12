@@ -1,5 +1,6 @@
 package com.order_online.user_service.adapter.input.transport;
 
+import com.order_online.user_service.domain.model.UserRole;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -14,6 +15,9 @@ public record CreateUserRequest(
         @NotBlank()
         @Min(6)
         @Max(20)
-        String password
+        String password,
+
+        @NotBlank
+        UserRole userRole
 ) {
 }
