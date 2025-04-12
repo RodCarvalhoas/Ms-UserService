@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class UserModel {
 
-    private String id;
+    private Long id;
 
     private String name;
 
@@ -14,11 +14,11 @@ public class UserModel {
 
     private UserRole userRole;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,7 +56,7 @@ public class UserModel {
 
     public UserModel(){}
 
-    public UserModel(String id, String name, String email, String password, UserRole userRole) {
+    public UserModel(Long id, String name, String email, String password, UserRole userRole) {
         this.id = id;
         this.name = name;
         this.email = email;

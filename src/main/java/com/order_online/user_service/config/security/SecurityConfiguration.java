@@ -29,8 +29,8 @@ public class SecurityConfiguration {
         return httpSecurity.csrf(CsrfConfigurer<HttpSecurity>::disable)
                 .sessionManagement(sessionM -> sessionM.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(httpReq ->
-                        httpReq.requestMatchers(HttpMethod.POST, "/api/v1/user").permitAll()
-                                .anyRequest().authenticated())
+//                        httpReq.requestMatchers(HttpMethod.POST, "/api/v1/user").permitAll()
+                        httpReq.anyRequest().permitAll())
                 .addFilterBefore((Filter) securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
                 .build();

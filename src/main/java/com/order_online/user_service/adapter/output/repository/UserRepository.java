@@ -1,5 +1,7 @@
 package com.order_online.user_service.adapter.output.repository;
 
+import com.order_online.user_service.adapter.output.persistence.UserEntity;
+import com.order_online.user_service.adapter.utils.UserMapper;
 import com.order_online.user_service.domain.model.UserModel;
 import com.order_online.user_service.port.output.UserRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +13,13 @@ public class UserRepository implements UserRepositoryPort {
     @Autowired
     private UserRepositoryJpa userRepositoryJpa;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
     public UserModel saveUser(UserModel user) {
-        return null;
+        UserEntity savedUser = userRepositoryJpa.save(this.userMapper.toEntity(user));
+        return this.userMapper.toDomain(savedUser);
     }
 
     @Override

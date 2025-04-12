@@ -38,6 +38,8 @@ public class SecurityFilter extends OncePerRequestFilter {
 
             SecurityContextHolder.getContext().setAuthentication(userAuthToken);
         }
+
+        filterChain.doFilter(request, response);
     }
 
     private String getTokenFromHeaderAuthorization(HttpServletRequest request) {
