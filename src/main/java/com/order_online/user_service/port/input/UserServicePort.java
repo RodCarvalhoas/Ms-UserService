@@ -7,5 +7,5 @@ public interface UserServicePort {
 
     UserModel findByEmail(String email);
     
-    
+    String login(String email, String password);
 }

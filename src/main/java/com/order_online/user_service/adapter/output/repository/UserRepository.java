@@ -23,7 +23,7 @@ public class UserRepository implements UserRepositoryPort {
     }
 
     @Override
-    public UserModel findById(String id) {
-        return null;
+    public UserModel findByEmail(String email) {
+        return userMapper.toDomain(userRepositoryJpa.findByEmail(email));
     }
 }

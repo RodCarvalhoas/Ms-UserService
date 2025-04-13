@@ -3,6 +3,8 @@ package com.order_online.user_service.config.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.order_online.user_service.adapter.output.persistence.UserEntity;
+import com.order_online.user_service.domain.model.UserModel;
+import com.order_online.user_service.port.output.TokenServicePort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -12,12 +14,11 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 @Service
-public class TokenService {
+public class TokenService implements TokenServicePort {
 
-    @Value("${jwt.secret}")
-    private String SECRET;
+    private String SECRET = "SECRET"; //TO DO - REMOVER EM PROD
 
-    public String generateToken(UserEntity user) {
+    public String generateToken(UserModel user) {
         Algorithm  algorithm = Algorithm.HMAC256(SECRET);
         return JWT.create()
                 .withIssuer("ORDER-ONLINE-MS-SERVICE")
@@ -28,7 +29,7 @@ public class TokenService {
 
     }
 
-    public Date dateExpiresAt() {
+    private Date dateExpiresAt() {
         return Date.from(Instant.now().plus(1, ChronoUnit.DAYS));
     }
 

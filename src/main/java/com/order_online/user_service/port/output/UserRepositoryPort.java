@@ -6,5 +6,5 @@ public interface UserRepositoryPort {
 
     UserModel saveUser(UserModel user);
 
-    UserModel findById(String id);
+    UserModel findByEmail(String email);
 }
