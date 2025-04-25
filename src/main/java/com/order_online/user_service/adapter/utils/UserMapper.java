@@ -12,12 +12,6 @@ public interface UserMapper {
 
     UserModel toDomain(UserEntity entity);
 
-    @Mapping(target = "username", ignore = true)
-    @Mapping(target = "authorities", ignore = true)
-    @Mapping(target = "accountNonExpired", ignore = true)
-    @Mapping(target = "accountNonLocked", ignore = true)
-    @Mapping(target = "credentialsNonExpired", ignore = true)
-    @Mapping(target = "enabled", ignore = true)
     UserEntity toEntity(UserModel model);
 
     CreateUserResponse toCreateUserResponse(UserModel model);

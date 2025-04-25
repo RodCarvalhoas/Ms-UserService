@@ -13,6 +13,8 @@ public class PasswordEncoder implements PasswordEncoderPort {
 
     @Override
     public String encode(String password) {
+        System.out.println("Entrei no encoder");
+        System.out.println(password);
         return encoder.encode(password);
     }
 

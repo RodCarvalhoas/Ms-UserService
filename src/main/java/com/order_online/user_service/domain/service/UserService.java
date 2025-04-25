@@ -1,5 +1,6 @@
 package com.order_online.user_service.domain.service;
 
+import com.order_online.user_service.domain.exception.InvalidCredentialsException;
 import com.order_online.user_service.domain.model.UserModel;
 import com.order_online.user_service.port.input.UserServicePort;
 import com.order_online.user_service.port.output.PasswordEncoderPort;
@@ -37,7 +38,7 @@ public class UserService implements UserServicePort {
     public String login(String email, String password) {
         UserModel user = this.findByEmail(email);
         if(user == null || !passwordEncoderPort.matches(password, user.getPassword()))
-            throw new RuntimeException("Credenciais inválidas");
+            throw new InvalidCredentialsException("Credenciais inválidas");
 
         return tokenServicePort.generateToken(user);
     }
